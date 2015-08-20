@@ -22,12 +22,14 @@ class _Lantern(object):
         return self._state == self.ON
     
     def on(self):
-        self._state = self.ON
-        self._draw()
+        if self._state != self.ON:
+            self._state = self.ON
+            self._draw()
         
     def off(self):
-        self._state = self.OFF
-        self._draw()
+        if self._state != self.OFF:
+            self._state = self.OFF
+            self._draw()
         
 lantern_instance = _Lantern()
 lantern_instance.on()

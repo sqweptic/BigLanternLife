@@ -33,15 +33,15 @@ class LanternConnector(object):
         
         value = bytearray(raw_value[:length])
         
-        self.apply_command(command, value)
+        self.apply_command(command, length, value)
         
         self.close()
         
-    def apply_command(self, command, value):
+    def apply_command(self, command, length, value):
         if command in self.LANTERN_COMMANDS:
             lantern_method = getattr(lantern_instance, 
                                      self.LANTERN_COMMANDS[command])
-            if value:
+            if length and value:
                 lantern_method(value)
             else:
                 lantern_method()

@@ -1,5 +1,4 @@
 import socket
-from datetime import timedelta
 
 import tornado.ioloop
 from tornado.tcpclient import TCPClient
@@ -7,8 +6,17 @@ from tornado.tcpclient import TCPClient
 from lantern_connector import LanternConnector     
 
 
+HOST = '127.0.0.1'
+PORT = 9999
+
 def get_connection_data():
-    return ('127.0.0.1', 9999)
+    _host = input('host(127.0.0.1): ')
+    if not _host:
+        _host = HOST
+    _port = input('port(9999): ')
+    if not _port:
+        _port = PORT
+    return (_host, _port)
 
 def main():
     host, port = get_connection_data()
