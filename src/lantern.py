@@ -4,12 +4,12 @@ class _Lantern(object):
     DEFAULT_COLOR = (255, 0, 0)
     
     def __init__(self):
-        self._state = self.ON
+        self._state = self.OFF
         self._color = self.DEFAULT_COLOR
     
     def _draw(self):
         if self._state == self.ON:
-            print('Lantern is ON and lighting {0}'.format(self._color))
+            print('Lantern is ON and lighting RGB{0}'.format(self._color))
         else:
             print('Lantern is OFF')
     
